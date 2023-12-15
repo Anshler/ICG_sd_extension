@@ -1,3 +1,3 @@
-# stable-diffusion-webui-extension-image-caption-generation
+# Image Caption extension for Stable Diffusion Webui
 
 a stable-diffusion-webui extension for image caption generation using our models from the paper... 
