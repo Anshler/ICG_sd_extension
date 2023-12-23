@@ -115,7 +115,7 @@ def get_caption(choice, image = None):
                 # Load model weights
                 model = ClipCaptionModel(prefix_length)
                 if not os.path.exists(model_path):
-                    url = 'https://download1649.mediafire.com/0jzo588ip91gq4T9uNZPEPaAJrIf8srGL3PIZ5kDUCpOsMHFjn-8xr4786EaZGA8IUxowMuUy3UnHc4aKGlWZHQBL7R4rArvkbhY_pzIuZyv_rGjA36yV38WAPkplghdo11g44kF5LBFvcLSp4dMHqdXUw4WWi2JnfRP03l7sTONEg/qof8qa7odm4dfck/flickr8k_prefix-030.pt'
+                    url = 'https://www.mediafire.com/file/qof8qa7odm4dfck/flickr8k_prefix-030.pt/file'
                     mediafire_dl.download(url, model_path, quiet=False)
                     
                 model.load_state_dict(torch.load(model_path, map_location=torch.device('cpu')))
@@ -131,7 +131,7 @@ def get_caption(choice, image = None):
                 model_name = 'top_hierarchy'
                 model_path = os.path.join(current_directory, model_name, 'model.safetensors')
                 if not os.path.exists(model_path):
-                    url = 'https://download1323.mediafire.com/u0312q9aa6lgEsgJmP1dLaDF0p7Td3f4fnWzlRH_NXvgPtskQq_GpRL23mZ50cv_R-0Ls31a9cvqgX1lUvBevqDDfNrMVNHzJ_FDg0B-81Whaslf5NatrZ4-exVjkuQeBu3EKd8LO0FFiUSsveSoaEZ88M8aWaA_XWFibLMa-Moszg/9rjol6786rlmefx/model.safetensors'
+                    url = 'https://www.mediafire.com/file/9rjol6786rlmefx/model.safetensors/file'
                     mediafire_dl.download(url, model_path, quiet=False)
                     
                 os.chdir(current_directory)
