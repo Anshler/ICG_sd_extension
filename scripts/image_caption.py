@@ -11,6 +11,7 @@ from modules import script_callbacks
 from transformers import  GPT2Tokenizer, GPT2LMHeadModel, pipeline, AutoModelForMaskedLM, AutoTokenizer
 from typing import List, Optional, Union, Tuple, Dict, Any
 from itertools import combinations
+from huggingface_hub import hf_hub_download
 
 original_directory = os.getcwd()
 current_directory = os.path.join(original_directory,'extensions','ICG_sd_extension','scripts')
@@ -114,10 +115,7 @@ def get_caption(choice, image = None):
                 tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
                 # Load model weights
                 model = ClipCaptionModel(prefix_length)
-                if not os.path.exists(model_path):
-                    url = 'https://www.mediafire.com/file/qof8qa7odm4dfck/flickr8k_prefix-030.pt/file'
-                    mediafire_dl.download(url, model_path, quiet=False)
-                    
+                model_path = hf_hub_download(repo_id="Anshler/clip-prefix", filename="flickr8k_gradient.pt")                 
                 model.load_state_dict(torch.load(model_path, map_location=torch.device('cpu')))
                 model = model.eval()
                 model = model.to(device)
